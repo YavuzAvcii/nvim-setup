@@ -76,18 +76,21 @@ vim.keymap.set({ 'n' }, '<Leader>c', '<Cmd>edit $MYVIMRC<CR>') -- keymap to edit
 
 -- TABS CONTROL MAPPINGS
 vim.keymap.set({ 'n' }, '<Tab>', '<Cmd>BufferNext<CR>')
-vim.keymap.set('n', '<A-1>', '<Cmd>BufferGoto 1<CR>')
-vim.keymap.set('n', '<A-2>', '<Cmd>BufferGoto 2<CR>')
-vim.keymap.set('n', '<A-3>', '<Cmd>BufferGoto 3<CR>')
-vim.keymap.set('n', '<A-4>', '<Cmd>BufferGoto 4<CR>')
-vim.keymap.set('n', '<A-5>', '<Cmd>BufferGoto 5<CR>')
-vim.keymap.set('n', '<A-6>', '<Cmd>BufferGoto 6<CR>')
-vim.keymap.set('n', '<A-7>', '<Cmd>BufferGoto 7<CR>')
-vim.keymap.set('n', '<A-8>', '<Cmd>BufferGoto 8<CR>')
-vim.keymap.set('n', '<A-9>', '<Cmd>BufferGoto 9<CR>')
+vim.keymap.set({ 'n' }, '<A-1>', '<Cmd>BufferGoto 1<CR>')
+vim.keymap.set({ 'n' }, '<A-2>', '<Cmd>BufferGoto 2<CR>')
+vim.keymap.set({ 'n' }, '<A-3>', '<Cmd>BufferGoto 3<CR>')
+vim.keymap.set({ 'n' }, '<A-4>', '<Cmd>BufferGoto 4<CR>')
+vim.keymap.set({ 'n' }, '<A-5>', '<Cmd>BufferGoto 5<CR>')
+vim.keymap.set({ 'n' }, '<A-6>', '<Cmd>BufferGoto 6<CR>')
+vim.keymap.set({ 'n' }, '<A-7>', '<Cmd>BufferGoto 7<CR>')
+vim.keymap.set({ 'n' }, '<A-8>', '<Cmd>BufferGoto 8<CR>')
+vim.keymap.set({ 'n' }, '<A-9>', '<Cmd>BufferGoto 9<CR>')
 vim.keymap.set({ 'n' }, 'tc', '<Cmd>BufferClose<CR>')
 vim.keymap.set({ 'n' }, 'tl', '<Cmd>BufferMoveNext<CR>')
 vim.keymap.set({ 'n' }, 'th', '<Cmd>BufferMovePrevious<CR>')
+
+-- GO MAPPINGS
+vim.keymap.set({ 'n' }, 'gf', '<Cmd>FzfLua files<CR>') --File search
 
 -- AUTOCOMMANDS (EVENT HANDLERS)
 --
@@ -129,8 +132,6 @@ vim.pack.add({
   'https://github.com/ibhagwan/fzf-lua',
   -- Autocompletion
   'https://github.com/nvim-mini/mini.completion',
-  -- Snippets
-  'https://github.com/nvim-mini/mini.snippets',
   -- Enhanced quickfix/loclist
   'https://github.com/stevearc/quicker.nvim',
   -- Theme
@@ -151,8 +152,6 @@ vim.pack.add({
   "https://github.com/romgrk/barbar.nvim.git",
   -- Nvim-web-devicons
   "https://github.com/nvim-tree/nvim-web-devicons.git",
-  -- Netrw configuration
-  "https://github.com/prichrd/netrw.nvim.git",
   -- GLSL Language server
   "https://github.com/stykhomyrov/vim-glsl.git",
 })
@@ -163,7 +162,6 @@ vim.lsp.enable('lua-language-server')
 
 require('fzf-lua').setup { fzf_colors = true }
 require('mini.completion').setup {}
-require('mini.snippets').setup {}
 require('mini.icons').setup {}
 -- require('mini.tabline').setup {}
 -- require('mini.statusline').setup {}
@@ -173,6 +171,5 @@ require('gitsigns').setup {}
 require('mason').setup {}
 require("gruvbox").setup {}
 require('lualine').setup {}
-require('netrw').setup {}
 
 vim.cmd.colorscheme("gruvbox")
